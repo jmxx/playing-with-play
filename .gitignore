@@ -25,3 +25,6 @@ target
 # Play
 logs
 RUNNING_PID
+
+#Node
+node_modules
