@@ -18,6 +18,8 @@ const onError = function (err) {
   this.emit('end');
 };
 
+const PORT = 9090;
+
 const paths = {
   public: './public',
   stylus: [
@@ -65,7 +67,7 @@ gulp.task('es6', () => {
 });
 
 gulp.task('play', (done) => {
-  const cmd = spawn('activator', ['~run'], {
+  const cmd = spawn('activator', [`~run ${PORT}`], {
     //stdio: 'inherit'
   });
 
@@ -86,7 +88,7 @@ gulp.task('play', (done) => {
 
 gulp.task('serve', (done) => {
   browserSync.init({
-    proxy: 'http://localhost:9000'
+    proxy: `http://localhost:${PORT}`
   }, done);
 });
 
